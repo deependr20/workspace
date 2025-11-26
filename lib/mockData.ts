@@ -1,0 +1,76 @@
+// Mock data for sample products
+export const mockProducts = [
+  {
+    id: '1',
+    name: 'Wheat',
+    quantity: 1000,
+    unit: 'kg',
+    price: 250,
+    description: 'High-quality whole wheat grains',
+    category: 'Grains',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: '2',
+    name: 'Rice',
+    quantity: 500,
+    unit: 'kg',
+    price: 400,
+    description: 'Premium long-grain rice',
+    category: 'Grains',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: '3',
+    name: 'Corn',
+    quantity: 750,
+    unit: 'kg',
+    price: 200,
+    description: 'Yellow corn kernels',
+    category: 'Grains',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: '4',
+    name: 'Soybeans',
+    quantity: 600,
+    unit: 'kg',
+    price: 350,
+    description: 'Non-GMO soybeans',
+    category: 'Legumes',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: '5',
+    name: 'Barley',
+    quantity: 400,
+    unit: 'kg',
+    price: 300,
+    description: 'Organic barley',
+    category: 'Grains',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+];
+
+// Mock user accounts
+export const mockUsers = [
+  {
+    id: 'user1',
+    email: 'admin@commodities.com',
+    password: 'password123',
+    role: 'manager' as const,
+    name: 'Admin Manager',
+  },
+  {
+    id: 'user2',
+    email: 'keeper@commodities.com',
+    password: 'password123',
+    role: 'storekeeper' as const,
+    name: 'Store Keeper',
+  },
+];
