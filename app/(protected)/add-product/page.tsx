@@ -1,7 +1,7 @@
 'use client';
 
 import { useProducts } from '@/hooks/useProducts';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { ProductForm } from '@/components/products/ProductForm';
@@ -10,19 +10,25 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function AddProductPage() {
   const { products, addProduct, updateProduct, isLoading } = useProducts();
-  const searchParams = useSearchParams();
   const router = useRouter();
-  const productId = searchParams.get('id');
+  const [productId, setProductId] = useState<string | null>(null);
   const [product, setProduct] = useState<Product | undefined>(undefined);
   const [pageLoading, setPageLoading] = useState(true);
 
   useEffect(() => {
-    if (productId && products.length > 0) {
-      const foundProduct = products.find(p => p.id === productId);
+    // read query param from client-side location to avoid SSR prerender issues
+    const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    const id = params ? params.get('id') : null;
+    setProductId(id);
+
+    if (id && products.length > 0) {
+      const foundProduct = products.find(p => p.id === id);
       setProduct(foundProduct);
     }
+
     setPageLoading(false);
-  }, [productId, products]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products]);
 
   const handleSubmit = async (data: Omit<Product, 'id' | 'createdAt' | 'updatedAt'>) => {
     if (product) {
