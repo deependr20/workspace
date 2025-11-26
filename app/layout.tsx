@@ -1,13 +1,9 @@
-import type { Metadata } from 'next';
+'use client';
+
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
 import { ThemeProvider } from 'next-themes';
 import { Navbar } from '@/components/navigation/Navbar';
-
-export const metadata: Metadata = {
-  title: 'Commodities Management System',
-  description: 'Role-based commodities management platform',
-};
 
 export default function RootLayout({
   children,

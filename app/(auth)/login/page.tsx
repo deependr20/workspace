@@ -2,7 +2,7 @@
 
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AlertCircle, LogIn } from 'lucide-react';
 
 export default function LoginPage() {
@@ -14,7 +14,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   // Redirect if already authenticated
-  React.useEffect(() => {
+  useEffect(() => {
     if (isAuthenticated) {
       router.push('/dashboard');
     }
